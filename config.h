@@ -3,17 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//////////////////////////////////////////////////
+
 #fuses XT, NOFCMEN, NOIESO, PUT, NOBROWNOUT, NOWDT
 #fuses NOPBADEN, MCLR, STVREN, NOLVP, NODEBUG
-//////////////////////////////////////////////////////
+
 #use fast_io(a)
 #use fast_io(b)
 #use fast_io(c)
 #use fast_io(d)
 #use delay(clock=16000000)
 
-////////////////////////////////////////////////////////
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\
 void setPorts(void)
 {
    setup_oscillator(OSC_NORMAL);

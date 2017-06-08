@@ -4,17 +4,16 @@
 #include <config.h>
 #include <Interrupciones.h>
 
-/////////////////////////////////////////////////
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\\
 void configuracionADC()
 {
-   //configBasica();
    setPorts();
    configTimer0();
    setup_adc(adc_clock_internal);
-   setup_adc_ports(0011);
-   set_adc_channel(0);
+   setup_adc_ports(0x03);
+   set_adc_channel(0x00);
    banderaCanal=0;
    enable_interrupts(INT_AD);
    enable_interrupts(global);
 }
-/////////////////
+

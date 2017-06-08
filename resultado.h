@@ -1,15 +1,15 @@
 
 double voltaje=0;
-int16 valorPort2=0;//valor para indicar el rango en que se encuentra
+int16 valorPort2=0;//variable para guardar el valor que indicará el rango en que se encuentra
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 void calculoRango(void)
 {
    voltaje= Port2*.004882813;
-   if(voltaje>=0 && voltaje <=.49)
-   {
+   if(voltaje>=0 && voltaje <=.49)//Comparaciones hechas para encontrar el rango de voltaje leido en el segundo puerto de señal analogica
+   {                              //
       valorPort2=1;
    }
-   else if(voltaje>.49 && voltaje <=.99)
+   else if(voltaje>.49 && voltaje <=.99)//Los valores ueron puestos en terminación de 9 para tener mayor precisión
    {
       valorPort2=2;
    }
@@ -45,7 +45,7 @@ void calculoRango(void)
    {
       valorPort2=512;
    }
-   else
+   else//fuera de rango, en caso de que sucediera
    {
      valorPort2=0;
    }
@@ -54,10 +54,10 @@ void calculoRango(void)
  void mostrarResultados(void)
  {
       read_adc(ADC_START_ONLY);
-      output_a(Port1<<2);
-      output_b(Port1>>4);
+      output_a(Port1<<2);//Imprime la salida de 10 bits de la lectura directa del ADC (va de 0 a 1023)
+      output_b(Port1>>4);//
       calculoRango();
-      output_c(valorPort2);
-      output_d(valorPort2>>8);
+      output_c(valorPort2);//Imprime el rango en que se encuentra la lectura del ADC (este trabaja en porcentaje, cada bit es un 10%)
+      output_d(valorPort2>>8);//
  }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
